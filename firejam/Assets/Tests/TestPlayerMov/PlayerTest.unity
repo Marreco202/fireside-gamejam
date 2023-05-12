@@ -444,8 +444,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874772627}
-  m_LocalRotation: {x: -0.22924222, y: 0.009644202, z: -0.0022904824, w: -0.973319}
-  m_LocalPosition: {x: 24.9, y: 4.63, z: -1.01}
+  m_LocalRotation: {x: 0.22477992, y: -1e-45, z: -0, w: 0.9744096}
+  m_LocalPosition: {x: 24.9, y: 2.2399998, z: -1.8299999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -510,8 +510,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305231787}
-  m_LocalRotation: {x: -0.22924222, y: 0.009644202, z: -0.0022904824, w: -0.973319}
-  m_LocalPosition: {x: 24.9, y: 4.63, z: -1.01}
+  m_LocalRotation: {x: 0.22477992, y: -1e-45, z: -0, w: 0.9744096}
+  m_LocalPosition: {x: 24.9, y: 2.2399998, z: -1.8299999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_LookAt: {fileID: 1890839761}
   m_Follow: {fileID: 1890839761}
   m_Lens:
     FieldOfView: 60
@@ -765,6 +765,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597e3239f557f3b4ea2d945341c3f7d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 15
+  maxHorizontalRange: 30
+  minHorizontalRange: 20
+  initialPlayerPos: {x: 24.9, y: 2.52, z: 2.5}
+  positionPitchScreenBased: 2
+  controlPitchScreenBased: -10
+  positionRawScreenBased: 100
+  posX: 0
+  posY: 0
+  mousePos: {x: 0, y: 0}
+  mouseSensitivity: 0.5
 --- !u!65 &1890839758
 BoxCollider:
   m_ObjectHideFlags: 0
