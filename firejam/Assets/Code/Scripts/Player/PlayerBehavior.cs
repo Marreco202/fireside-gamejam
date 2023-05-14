@@ -14,13 +14,13 @@ public class PlayerBehavior : MonoBehaviour
     private Rigidbody rb;
 
     [SerializeField] float speed = 15f;
-    [SerializeField] float maxHorizontalRange = 15f; // not negative because the initial position of the player test
-    [SerializeField] float minHorizontalRange = 5f;
-    [SerializeField] Vector3 initialPlayerPos = new Vector3(24.9f, 2.52f, 2.5f);
+    [SerializeField] float maxHorizontalRange = 15f;
+    [SerializeField] float minHorizontalRange = -15f;
+    [SerializeField] Vector3 initialPlayerPos = new Vector3(0f, 0f, 0f);
 
     // Pitch
-    [SerializeField] float positionPitchScreenBased = -2f;
-    [SerializeField] float controlPitchScreenBased = -10f;
+    [SerializeField] float positionPitchScreenBased = -5f;
+    [SerializeField] float controlPitchScreenBased = -5f;
 
     // Yaw
     //[SerializeField] float positionRawScreenBased = -5f;
@@ -44,6 +44,9 @@ public class PlayerBehavior : MonoBehaviour
     {
         localMovHorizontalMechanic();
         localMovRotationMechanic();
+
+        // Contante Rotation
+
     }
 
     private void FixedUpdate() 
@@ -55,6 +58,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * Time.deltaTime * 10f);   // The delta time is necessary because the player run fast and get 'flick' effect
+
     }
 
     // the player is rotating according to its own axis (local) and not according to the world
@@ -64,34 +68,15 @@ public class PlayerBehavior : MonoBehaviour
         float pitchPositionBased = transform.localPosition.y * positionPitchScreenBased;
         float pitchControlBased = posY * controlPitchScreenBased;
         float pitch = pitchPositionBased + pitchControlBased;
-
-        // yaw - mechanic
-
-
-        //float yaw = transform.localPosition.x * -5f;
-        //float yaw = 0f;
-        //Debug.Log(">>>>>>>>>>>>>>> YAM CALC:" + yaw);
-
         float roll = 0f;
-
-        //StartCoroutine(MouseYawMovementDelay(pitch, roll, 0f));
         
         MouseYawMovement(pitch, roll);
-        // transform.localRotation = Quaternion.Euler(pitch, clampMousePosX, roll); // Quaternion.Euler(pitch, raw, roll)
     }
 
     private void MouseYawMovement(float pitch, float roll) 
     {
         mousePos.x += Input.GetAxis("Mouse X") * mouseSensitivity;
-        float clampMousePosX = Mathf.Clamp(mousePos.x, -15, 15);
-        transform.localRotation = Quaternion.Euler(pitch, clampMousePosX, roll);
-    }
-
-     private IEnumerator MouseYawMovementDelay(float pitch, float roll, float delay)
-    {
-        mousePos.x += Input.GetAxis("Mouse X") * mouseSensitivity;
-        float clampMousePosX = Mathf.Clamp(mousePos.x, -15, 15);
-        yield return new WaitForSeconds(2f);
+        float clampMousePosX = Mathf.Clamp(mousePos.x, minHorizontalRange, maxHorizontalRange);
         transform.localRotation = Quaternion.Euler(pitch, clampMousePosX, roll);
     }
 
@@ -100,8 +85,6 @@ public class PlayerBehavior : MonoBehaviour
         posX = Input.GetAxis("Horizontal");
         posY = Input.GetAxis("Vertical");
 
-        //Debug.Log(posX);
-
         float xOffset = posX * Time.deltaTime * speed;
         float rawPosX = transform.localPosition.x + xOffset;
 
@@ -109,15 +92,4 @@ public class PlayerBehavior : MonoBehaviour
 
         transform.localPosition = new Vector3(clampPosX, transform.localPosition.y, transform.localPosition.z);
     }
- 
-    //void AutomaticPlayerMoviment() 
-    //{
- 
-        //transform.Translate(Vector3.forward * curSpeed * Time.deltaTime);
-    
-        //curSpeed += acceleration * Time.deltaTime;
-    
-        //if (curSpeed > maxSpeed)
-            //curSpeed = maxSpeed;
-    //}
 }

@@ -8,6 +8,9 @@ public class Scanner : MonoBehaviour
     Mesh mesh;
     MeshRenderer meshRenderer;
 
+    [SerializeField] float maxHorizontalRange = 15f; // not negative because the initial position of the player test
+    [SerializeField] float minHorizontalRange = -15f;
+
     GameObject playerObject;
     public Material material;
     ScannerObject scannerInstance = ScannerObject.getInstance();
@@ -15,7 +18,7 @@ public class Scanner : MonoBehaviour
     public Material newMaterial;
     Rigidbody scannerRb;
     GameObject scannerObject;
-    Vector3 scannerInitialPosition = new Vector3(24.9f, 2.52f, 3.3f);
+    Vector3 scannerInitialPosition;
 
     float dynamicScannerPositionZ;
 
@@ -28,10 +31,11 @@ public class Scanner : MonoBehaviour
 
         // Setup Position and rotation
         //scannerInitialPosition = new Vector3(24.9f, 2.52f, 3.3f);
+        scannerInitialPosition = new Vector3(0f, 0f, 3f);
         Vector3 objectSize = getGameObjectSize(playerObject); 
 
-        scannerObject.transform.localRotation = Quaternion.Euler(-93.357f, 0, 0);
-        scannerObject.transform.localPosition = new Vector3(24.9f, 2.52f, scannerInitialPosition[2]);
+        scannerObject.transform.localRotation = Quaternion.Euler(0f, 0, 0);
+        scannerObject.transform.localPosition = new Vector3(0f, 0f, scannerInitialPosition[2]);
     }
 
     private Vector3 getGameObjectSize(GameObject gameObject)
@@ -54,8 +58,8 @@ public class Scanner : MonoBehaviour
         dynamicScannerPositionZ = (scannerInitialPosition[2] + playerObject.transform.position.z) + 10;
         scannerObject.transform.localPosition = new Vector3(playerObject.transform.position.x, playerObject.transform.position.y, dynamicScannerPositionZ);
         playerBehavior = playerObject.GetComponent<PlayerBehavior>();
-        float clampMousePosX = Mathf.Clamp(playerBehavior.mousePos.x, -15, 15);
-        scannerObject.transform.localRotation = Quaternion.Euler(-93.357f, clampMousePosX, 0);
+        float clampMousePosX = Mathf.Clamp(playerBehavior.mousePos.x, minHorizontalRange, maxHorizontalRange);
+        scannerObject.transform.localRotation = Quaternion.Euler(0f, clampMousePosX, 0);
         Vector3 playerObjectPoint = playerObject.transform.position + playerObject.transform.forward * 8f;
         scannerObject.transform.localPosition = new Vector3(playerObjectPoint[0], playerObject.transform.position.y, dynamicScannerPositionZ);
     }
