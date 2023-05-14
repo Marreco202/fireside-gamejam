@@ -23,7 +23,7 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] float controlPitchScreenBased = -10f;
 
     // Yaw
-    [SerializeField] float positionRawScreenBased = -5f;
+    //[SerializeField] float positionRawScreenBased = -5f;
     //[SerializeField] float controlRawScreenBased = -10f;
 
     [SerializeField] float posX;
@@ -69,8 +69,8 @@ public class PlayerBehavior : MonoBehaviour
 
 
         //float yaw = transform.localPosition.x * -5f;
-        float yaw = 0f;
-        Debug.Log(">>>>>>>>>>>>>>> YAM CALC:" + yaw);
+        //float yaw = 0f;
+        //Debug.Log(">>>>>>>>>>>>>>> YAM CALC:" + yaw);
 
         float roll = 0f;
 
@@ -99,8 +99,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         posX = Input.GetAxis("Horizontal");
         posY = Input.GetAxis("Vertical");
-        //float posY = Input.GetAxis("Vertical");
-        //Debug.Log(posY);
+
         Debug.Log(posX);
 
         float xOffset = posX * Time.deltaTime * speed;
@@ -108,7 +107,7 @@ public class PlayerBehavior : MonoBehaviour
 
         float clampPosX = Mathf.Clamp(rawPosX, minHorizontalRange, maxHorizontalRange); // Limit axis x of moviment
 
-        transform.localPosition = new Vector3(clampPosX, transform.localPosition.y, +transform.localPosition.z);
+        transform.localPosition = new Vector3(clampPosX, transform.localPosition.y, transform.localPosition.z);
     }
  
     //void AutomaticPlayerMoviment() 
