@@ -60,7 +60,7 @@ public class PlayerBehavior : MonoBehaviour
     // the player is rotating according to its own axis (local) and not according to the world
     void localMovRotationMechanic()
     {
-        // PITCH
+        // PITCH = y axis in a Vector3
         float pitchPositionBased = transform.localPosition.y * positionPitchScreenBased;
         float pitchControlBased = posY * controlPitchScreenBased;
         float pitch = pitchPositionBased + pitchControlBased;
@@ -87,7 +87,7 @@ public class PlayerBehavior : MonoBehaviour
         transform.localRotation = Quaternion.Euler(pitch, clampMousePosX, roll);
     }
 
-    private IEnumerator MouseYawMovementDelay(float pitch, float roll, float delay)
+     private IEnumerator MouseYawMovementDelay(float pitch, float roll, float delay)
     {
         mousePos.x += Input.GetAxis("Mouse X") * mouseSensitivity;
         float clampMousePosX = Mathf.Clamp(mousePos.x, -15, 15);
