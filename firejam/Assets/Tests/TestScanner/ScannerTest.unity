@@ -671,6 +671,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newMaterial: {fileID: 0}
+  progressBarInstance: {fileID: 0}
+  progressBarPrefab: {fileID: 419596089314544079, guid: c3c724142055a7d4db4269eddb648db4, type: 3}
+  progressBar: {fileID: 0}
 --- !u!1 &1305231787
 GameObject:
   m_ObjectHideFlags: 0
