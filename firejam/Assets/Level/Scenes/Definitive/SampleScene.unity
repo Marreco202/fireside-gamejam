@@ -802,6 +802,7 @@ GameObject:
   - component: {fileID: 1235108333}
   - component: {fileID: 1235108332}
   - component: {fileID: 1235108331}
+  - component: {fileID: 1235108334}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -909,6 +910,28 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1235108334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235108329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec43b46e147ada67ea8d9b5e771d4b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  src: {fileID: 702467852}
+  clip: {fileID: 8300000, guid: 7b22ee62e09101d248e9be5c4723e3d0, type: 3}
+  Vacuo: {fileID: 8300000, guid: 3b3a1f4d2a36c71eb8f63f324c7cdb10, type: 3}
+  Sucesso: {fileID: 8300000, guid: 57a11848dea0fed4b95836ed1784f285, type: 3}
+  PerdeuLore: {fileID: 8300000, guid: 1b329758fafda5f1299075b2a7cc9a8c, type: 3}
+  Impacto: {fileID: 8300000, guid: 49c115774e576192abc3cd5dfd5233a7, type: 3}
+  FudeuNave: {fileID: 8300000, guid: 48ee40a14ee5eec268a466ecd9bac1a4, type: 3}
+  Escaneando: {fileID: 8300000, guid: ace5488df471666048b52b0715e8c80e, type: 3}
+  AlphaFaster: {fileID: 8300000, guid: bc15a767e1f4735118a663bc21fab388, type: 3}
+  AlphaFast: {fileID: 8300000, guid: e31a6bd642e1fdb9180f951176aad1ea, type: 3}
 --- !u!1 &1462102559
 GameObject:
   m_ObjectHideFlags: 0
