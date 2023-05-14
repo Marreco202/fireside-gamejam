@@ -14,6 +14,19 @@ public class ScannerCollision : MonoBehaviour
     public GameObject progressBarPrefab;
     public GameObject progressBar;
 
+    TestAudio to_test;
+
+    void Start()
+    {
+        to_test = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<TestAudio>(); //have acess to all the publics methods of that script
+        //
+    }
+
+    void Update()
+    {
+        to_test.playAudioOnKey();
+    }
+
     private void initProgressBar() 
     {
         float screenHeight = Screen.height;
@@ -31,13 +44,19 @@ public class ScannerCollision : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Collider>().name == "MeteorStatic") {
+            print(">>>>>> COLLISION!!!!!!!! <<<<<<");   
             initProgressBar();
+            to_test.playAudio(); //NEED TESTING!
 
             GetComponent<MeshRenderer>().material = newMaterial;
             //currentProgress += 5;
             ScannerProgressBar.progress += 5;
 
             //progressBarInstance.SetProgress(currentProgress);
+        }
+
+        else if(other.GetComponent<Collider>().tag == "TestAudioTag") {
+            to_test.playAudio(); //NEED TESTING!
         }
     }
 

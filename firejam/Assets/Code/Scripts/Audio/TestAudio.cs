@@ -16,8 +16,17 @@ public class TestAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //playAudioOnKey(); 
+    }
+
+    public void playAudioOnKey()
+    {
         if(Input.GetKeyDown(KeyCode.R)){
             src.PlayOneShot(clip);
-        }   
+        }  
+    }
+
+    public void playAudio(){
+        src.PlayOneShot(clip);
     }
 }
