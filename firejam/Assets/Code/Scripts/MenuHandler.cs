@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class MenuHandler : MonoBehaviour
     void Start() 
     {
     
+    }
+
+
+    public void pressedPlayButton(){
+        SceneManager.LoadScene(1); //0 = main menu ; 1 = SampleScene 
+        print("Entrei #O_O#");
     }
 
     public void pressedQuitButton(){
