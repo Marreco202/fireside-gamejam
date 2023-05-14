@@ -43,7 +43,7 @@ public class SaveLoad : MonoBehaviour
         is_windowed = PlayerPrefs.GetInt("is_windowed");
         resolution_x = PlayerPrefs.GetInt("resolution_x");
         resolution_y = PlayerPrefs.GetInt("resolution_y");
-        changeWindowMode();
+        changeWindowMode(); //comment this if the game crashes
     }
 
     void changeResolution()
