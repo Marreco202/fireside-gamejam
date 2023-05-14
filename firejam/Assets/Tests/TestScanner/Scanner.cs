@@ -5,10 +5,14 @@ using UnityEngine;
 public class Scanner : MonoBehaviour
 {
     // Start is called before the first frame update
+    Mesh mesh;
+    MeshRenderer meshRenderer;
+
     GameObject playerObject;
     public Material material;
     ScannerObject scannerInstance = ScannerObject.getInstance();
     PlayerBehavior playerBehavior;
+    public Material newMaterial;
     Rigidbody scannerRb;
     GameObject scannerObject;
     Vector3 scannerInitialPosition = new Vector3(24.9f, 2.52f, 3.3f);
@@ -18,9 +22,9 @@ public class Scanner : MonoBehaviour
     void initObject()
     {
         playerObject = GameObject.Find("Player"); // This allows to find player object (givin the name) created through UI hierarchy
-        Debug.Log("Player speed: " + playerObject);
+        //Debug.Log("Player speed: " + playerObject);
         scannerObject = GameObject.Find("Scanner");
-        scannerInstance.createConePolygon(scannerObject, material); //-93.357f
+        //scannerInstance.createConePolygon(scannerObject, material); //-93.357f
 
         // Setup Position and rotation
         //scannerInitialPosition = new Vector3(24.9f, 2.52f, 3.3f);

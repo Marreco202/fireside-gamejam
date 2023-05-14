@@ -100,7 +100,7 @@ public class PlayerBehavior : MonoBehaviour
         posX = Input.GetAxis("Horizontal");
         posY = Input.GetAxis("Vertical");
 
-        Debug.Log(posX);
+        //Debug.Log(posX);
 
         float xOffset = posX * Time.deltaTime * speed;
         float rawPosX = transform.localPosition.x + xOffset;
